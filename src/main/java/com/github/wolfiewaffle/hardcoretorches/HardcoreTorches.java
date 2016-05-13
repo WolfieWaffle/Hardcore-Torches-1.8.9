@@ -31,7 +31,6 @@ public class HardcoreTorches {
 	@EventHandler
 	public void Init(FMLInitializationEvent event) {
 		HardcoreTorches.proxy.init(event);
-	    ItemRenderRegister.registerItemRenderer();
 	}
 
 	@EventHandler

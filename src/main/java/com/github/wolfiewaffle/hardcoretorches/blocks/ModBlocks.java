@@ -7,6 +7,6 @@ public class ModBlocks {
 	public static Block torch_burnt;
 
     public static void createBlocks() {
-    	GameRegistry.registerBlock(torch_burnt = new BlockTorchBasic("torch_burnt"), "torch_burnt");
+    	GameRegistry.registerBlock(torch_burnt = new BlockTorchBurnt("torch_burnt"), "torch_burnt");
     }
 }
