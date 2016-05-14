@@ -10,13 +10,13 @@ import com.github.wolfiewaffle.hardcoretorches.client.render.items.ItemRenderReg
 public class ClientProxy extends CommonProxy {
     public void preInit(FMLPreInitializationEvent e) {
     	super.preInit(e);
+
+        ItemRenderRegister.registerItemRenderer();
+        BlockRenderRegister.registerBlockRenderer();
     }
 
     public void init(FMLInitializationEvent e) {
     	super.init(e);
-
-        ItemRenderRegister.registerItemRenderer();
-        BlockRenderRegister.registerBlockRenderer();
     }
 
     public void postInit(FMLPostInitializationEvent e) {

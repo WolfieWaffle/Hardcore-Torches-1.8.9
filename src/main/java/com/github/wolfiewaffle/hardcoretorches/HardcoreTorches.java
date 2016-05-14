@@ -1,5 +1,7 @@
 package com.github.wolfiewaffle.hardcoretorches;
 
+import com.github.wolfiewaffle.hardcoretorches.proxy.CommonProxy;
+
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -8,18 +10,17 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-import com.github.wolfiewaffle.hardcoretorches.client.render.items.ItemRenderRegister;
-import com.github.wolfiewaffle.hardcoretorches.proxy.CommonProxy;
-
 @Mod(modid = HardcoreTorches.MODID, name = HardcoreTorches.MODNAME, version = HardcoreTorches.VERSION)
 public class HardcoreTorches {
     public static final String MODID = "hardcoretorches";
     public static final String MODNAME = "Hardcore Torches";
     public static final String VERSION = "@VERSION@";
 
+    // Proxy
     @SidedProxy(clientSide="com.github.wolfiewaffle.hardcoretorches.proxy.ClientProxy", serverSide="com.github.wolfiewaffle.hardcoretorches.proxy.ServerProxy")
     public static CommonProxy proxy;
 
+    // Instance so we can refer to the mod later
     @Instance
     public static HardcoreTorches instance = new HardcoreTorches();
 
