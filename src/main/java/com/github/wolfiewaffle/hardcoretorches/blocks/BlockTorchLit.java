@@ -2,6 +2,8 @@ package com.github.wolfiewaffle.hardcoretorches.blocks;
 
 import java.util.Random;
 
+import com.github.wolfiewaffle.tileentity.TileEntityTorch;
+
 import net.minecraft.block.BlockTorch;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
@@ -26,7 +28,7 @@ final class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
     // Create tile entity
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta) {
-        return new ModTileEntity();
+        return new TileEntityTorch();
     }
 
     /**
