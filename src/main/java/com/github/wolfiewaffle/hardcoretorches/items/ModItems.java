@@ -3,7 +3,7 @@ package com.github.wolfiewaffle.hardcoretorches.items;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class ModItems {
+public final class ModItems {
 
 	public static Item animal_fat;
 

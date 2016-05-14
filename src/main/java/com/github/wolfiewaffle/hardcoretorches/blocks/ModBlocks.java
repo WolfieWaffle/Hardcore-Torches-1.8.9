@@ -3,7 +3,7 @@ package com.github.wolfiewaffle.hardcoretorches.blocks;
 import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class ModBlocks {
+public final class ModBlocks {
 	public static Block torch_burnt;
 
     public static void createBlocks() {

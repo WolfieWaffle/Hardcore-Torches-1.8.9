@@ -13,11 +13,11 @@ public class BlockRenderRegister {
 	public static String modid = HardcoreTorches.MODID;
 
     public static void registerBlockRenderer() {
-    	reg(ModBlocks.torch_burnt);
+    	reg(ModBlocks.torch_burnt, "torch_burnt");
     }
 
-	public static void reg(Block block) {
+	public static void reg(Block block, String name) {
 		// This sets the custom model for a (registry ID? block?)
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(new ResourceLocation(HardcoreTorches.MODID, block.getRegistryName()), "inventory"));
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(new ResourceLocation(HardcoreTorches.MODID, name), "inventory"));
 	}
 }
