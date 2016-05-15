@@ -1,10 +1,9 @@
 package com.github.wolfiewaffle.hardcoretorches.blocks;
 
-import com.github.wolfiewaffle.tileentity.TileEntityTorch;
+import com.github.wolfiewaffle.hardcoretorches.tileentity.TileEntityTorch;
 
 import net.minecraft.block.BlockTorch;
 import net.minecraft.block.ITileEntityProvider;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.tileentity.TileEntity;
@@ -12,13 +11,16 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 final class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
-    public BlockTorchLit(String unlocalizedName, Material material, float hardness, float resistance) {
-        super();
+	// Instance variables
+	final static int MAX_FUEL = 1000; // Max duration in ticks
+
+	// Constructor
+    public BlockTorchLit(String unlocalizedName) {
         this.setUnlocalizedName(unlocalizedName);
         this.setCreativeTab(CreativeTabs.tabBlock);
-        this.setHardness(hardness);
-        this.setResistance(resistance);
-        this.isBlockContainer = true;
+        this.setHardness(0.0f);
+        this.setResistance(0.0f);
+        this.setLightLevel(0.0f);
     }
 
     // Create tile entity
@@ -48,6 +50,10 @@ final class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
         return tileentity == null ? false : tileentity.receiveClientEvent(eventID, eventParam);
     }
 
+    /**
+     * Don't use the special TE rendering. This requires us to override this method and return 3
+     * @see net.minecraft.block.Block#getRenderType()
+     */
     @Override
     public int getRenderType() {
     	return 3;

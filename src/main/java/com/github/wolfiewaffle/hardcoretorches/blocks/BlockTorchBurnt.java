@@ -11,14 +11,6 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 
 final class BlockTorchBurnt extends BlockTorch {
-	/*
-	 * public BlockTorchBurnt(String unlocalizedName, Material material, float
-	 * hardness, float resistance) { super();
-	 * this.setUnlocalizedName(unlocalizedName);
-	 * this.setCreativeTab(CreativeTabs.tabBlock); this.setHardness(hardness);
-	 * this.setResistance(resistance); }
-	 */
-
     public BlockTorchBurnt(String unlocalizedName) {
         this.setUnlocalizedName(unlocalizedName);
         this.setCreativeTab(CreativeTabs.tabBlock);

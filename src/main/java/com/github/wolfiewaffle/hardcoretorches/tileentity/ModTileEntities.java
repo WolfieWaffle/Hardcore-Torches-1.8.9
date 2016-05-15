@@ -1,4 +1,4 @@
-package com.github.wolfiewaffle.tileentity;
+package com.github.wolfiewaffle.hardcoretorches.tileentity;
 
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
