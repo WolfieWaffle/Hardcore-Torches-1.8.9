@@ -21,6 +21,7 @@ final class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
         this.setHardness(0.0f);
         this.setResistance(0.0f);
         this.setLightLevel(0.0f);
+		this.setRegistryName("torch_lit");
     }
 
     // Create tile entity
