@@ -3,7 +3,6 @@ package com.github.wolfiewaffle.hardcoretorches.blocks;
 import java.util.Random;
 
 import net.minecraft.block.BlockTorch;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.BlockPos;
@@ -12,20 +11,20 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 
 final class BlockTorchBurnt extends BlockTorch {
-    public BlockTorchBurnt(String unlocalizedName, Material material, float hardness, float resistance) {
-        super();
-        this.setUnlocalizedName(unlocalizedName);
-        this.setCreativeTab(CreativeTabs.tabBlock);
-        this.setHardness(hardness);
-        this.setResistance(resistance);
-    }
+	/*
+	 * public BlockTorchBurnt(String unlocalizedName, Material material, float
+	 * hardness, float resistance) { super();
+	 * this.setUnlocalizedName(unlocalizedName);
+	 * this.setCreativeTab(CreativeTabs.tabBlock); this.setHardness(hardness);
+	 * this.setResistance(resistance); }
+	 */
 
     public BlockTorchBurnt(String unlocalizedName) {
         this.setUnlocalizedName(unlocalizedName);
         this.setCreativeTab(CreativeTabs.tabBlock);
         this.setHardness(0.0f);
         this.setResistance(0.0f);
-        this.setLightLevel(3.0f);
+        this.setLightLevel(0.0f);
     }
 
 	@Override

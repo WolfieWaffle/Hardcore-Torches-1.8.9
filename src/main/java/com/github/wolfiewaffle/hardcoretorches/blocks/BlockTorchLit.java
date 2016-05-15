@@ -1,7 +1,5 @@
 package com.github.wolfiewaffle.hardcoretorches.blocks;
 
-import java.util.Random;
-
 import com.github.wolfiewaffle.tileentity.TileEntityTorch;
 
 import net.minecraft.block.BlockTorch;
@@ -11,8 +9,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 
 final class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
