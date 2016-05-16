@@ -10,9 +10,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
-final class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
+public final class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
 	// Instance variables
-	final static int MAX_FUEL = 1000; // Max duration in ticks
+	public final static int MAX_FUEL = 1000; // Max duration in ticks
 
 	// Constructor
     public BlockTorchLit(String unlocalizedName) {
