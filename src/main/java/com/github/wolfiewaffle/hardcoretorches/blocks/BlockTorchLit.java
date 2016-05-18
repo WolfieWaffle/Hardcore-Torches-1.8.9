@@ -21,11 +21,11 @@ import net.minecraft.world.World;
 public class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
 	public final static int MAX_FUEL = HardcoreTorches.configTorchFuel;
 
-    public BlockTorchLit(String name) {
-    	this();
+	public BlockTorchLit(String name) {
+		this();
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
-    }
+	}
 
     public BlockTorchLit() {
         this.setCreativeTab(CreativeTabs.tabBlock);
