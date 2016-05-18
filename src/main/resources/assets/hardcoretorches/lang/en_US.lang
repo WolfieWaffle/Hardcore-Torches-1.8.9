@@ -1,3 +1,3 @@
-item.animal_fat.name=Animal Fat
-
-item.torch_burnt.name=Burnt Torch
+tile.torch_burnt.name=Burnt Torch
+tile.torch_lit.name=Lit Torch
+tile.torch_coke_lit.name=Lit Coke Torch

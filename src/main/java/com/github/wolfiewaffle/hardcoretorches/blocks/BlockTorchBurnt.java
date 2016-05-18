@@ -11,12 +11,13 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 
 final class BlockTorchBurnt extends BlockTorch {
-    public BlockTorchBurnt(String unlocalizedName) {
-        this.setUnlocalizedName(unlocalizedName);
+    public BlockTorchBurnt(String name) {
+        this.setUnlocalizedName(name);
         this.setCreativeTab(CreativeTabs.tabBlock);
         this.setHardness(0.0f);
         this.setResistance(0.0f);
         this.setLightLevel(0.0f);
+        this.setRegistryName(name);
     }
 
 	@Override
