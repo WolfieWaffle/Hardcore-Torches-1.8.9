@@ -78,15 +78,6 @@ public class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
     	return 3;
     }
 
-    /**
-     * Called when the player right clicks on this block
-     * 
-     * @param world The world object
-     * @param pos The position of the activated block
-     * @param state The state of the activated block
-     * @param player The player that activated the block
-     * @param side THe side that was right clicked
-     */
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
 		TileEntityTorch te = (TileEntityTorch) world.getTileEntity(pos);
@@ -94,7 +85,7 @@ public class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
 
 		// Main logic, must make sure TE isn't null
 		if (te != null) {
-			//if (HardcoreTorches.configDebug) System.out.printf("Right click. Fuel: %d\n", te.getFuelAmount());
+			if (HardcoreTorches.configDebug) System.out.printf("Right click. Fuel: %d\n", te.getFuelAmount());
 
 			// Light held torches
 			if (player.getHeldItem() == new ItemStack(ModBlocks.torch_burnt)) {
