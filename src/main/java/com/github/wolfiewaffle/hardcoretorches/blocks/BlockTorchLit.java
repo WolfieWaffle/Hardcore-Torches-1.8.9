@@ -22,8 +22,8 @@ public class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
 	public final static int MAX_FUEL = HardcoreTorches.configTorchFuel;
 
     public BlockTorchLit(String name) {
-		this();
-        this.setUnlocalizedName(name);
+    	this();
+		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
     }
 
