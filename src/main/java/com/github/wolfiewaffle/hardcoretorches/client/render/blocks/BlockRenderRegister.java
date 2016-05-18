@@ -16,6 +16,7 @@ public class BlockRenderRegister {
     	reg(ModBlocks.torch_burnt, "torch_burnt");
     	reg(ModBlocks.torch_lit, "torch_lit");
     	reg(ModBlocks.torch_coke_lit, "torch_coke_lit");
+    	reg(ModBlocks.test_block, "test_block");
     }
 
 	public static void reg(Block block, String name) {

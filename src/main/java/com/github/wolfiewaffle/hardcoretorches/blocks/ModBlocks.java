@@ -10,11 +10,13 @@ public final class ModBlocks {
 	public static Block torch_burnt;
 	public static Block torch_lit;
 	public static Block torch_coke_lit;
+	public static Block test_block;
 
     public static void createBlocks() {
     	GameRegistry.registerBlock(torch_lit = new BlockTorchLit("torch_lit"), ItemTorchLit.class);
     	GameRegistry.registerBlock(torch_coke_lit = new BlockTorchCokeLit("torch_coke_lit"), ItemTorchCokeLit.class);
     	GameRegistry.registerBlock(torch_burnt = new BlockTorchBurnt("torch_burnt"));
+    	GameRegistry.registerBlock(test_block = new BlockTest("test_block"));
     }
 
 	/**

@@ -37,7 +37,7 @@ public class HardcoreTorches {
 
 		config.load();
 
-		configTorchFuel = config.getInt("torchFuel", Configuration.CATEGORY_GENERAL, 20000, 1, Integer.MAX_VALUE, "Burn time (in seconds) of a default lit torch");
+		configTorchFuel = config.getInt("torchFuel", Configuration.CATEGORY_GENERAL, 1000, 1, Integer.MAX_VALUE, "Burn time (in seconds) of a default lit torch");
 		configDebug = config.getBoolean("debug", Configuration.CATEGORY_GENERAL, false, "Set to true to output debug info to the console. Not useful for players.");
 		configTorchDropMode = config.getInt("torchDropMode", Configuration.CATEGORY_GENERAL, 0, 0, 2, "0: Torches burn out completely when broken.\n1: Torches will become unlit when broken.\n2: Torches will stay lit when broken.");
 

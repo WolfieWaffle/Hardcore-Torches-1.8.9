@@ -19,6 +19,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
+
 	public final static int MAX_FUEL = HardcoreTorches.configTorchFuel;
 
 	public BlockTorchLit(String name) {
@@ -27,19 +28,19 @@ public class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
 		this.setRegistryName(name);
 	}
 
-    public BlockTorchLit() {
-        this.setCreativeTab(CreativeTabs.tabBlock);
-        this.setHardness(0.0f);
-        this.setResistance(0.0f);
-        this.setLightLevel(1.0f);
-        this.isBlockContainer = true;
-    }
+	public BlockTorchLit() {
+		this.setCreativeTab(CreativeTabs.tabBlock);
+		this.setHardness(0.0f);
+		this.setResistance(0.0f);
+		this.setLightLevel(1.0f);
+		this.isBlockContainer = true;
+	}
 
-    // Create tile entity
-    @Override
-    public TileEntity createNewTileEntity(World worldIn, int meta) {
-        return new TileEntityTorch();
-    }
+	// Create tile entity
+	@Override
+	public TileEntity createNewTileEntity(World worldIn, int meta) {
+		return new TileEntityTorch();
+	}
 
 	/**
 	 * Required TE method. This cleans up the TE when the block is broken
@@ -47,11 +48,11 @@ public class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
 	 * @see net.minecraft.block.Block#breakBlock(net.minecraft.world.World,
 	 *      net.minecraft.util.BlockPos, net.minecraft.block.state.IBlockState)
 	 */
-    @Override
-    public void breakBlock(World world, BlockPos pos, IBlockState state) {
-        super.breakBlock(world, pos, state);
-        world.removeTileEntity(pos);
-    }
+	@Override
+	public void breakBlock(World world, BlockPos pos, IBlockState state) {
+		super.breakBlock(world, pos, state);
+		world.removeTileEntity(pos);
+	}
 
 	/**
 	 * Required TE method. Passes events to the TE
@@ -60,12 +61,12 @@ public class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
 	 *      net.minecraft.util.BlockPos, net.minecraft.block.state.IBlockState,
 	 *      int, int)
 	 */
-    @Override
-    public boolean onBlockEventReceived(World worldIn, BlockPos pos, IBlockState state, int eventID, int eventParam) {
-        super.onBlockEventReceived(worldIn, pos, state, eventID, eventParam);
-        TileEntity tileentity = worldIn.getTileEntity(pos);
-        return tileentity == null ? false : tileentity.receiveClientEvent(eventID, eventParam);
-    }
+	@Override
+	public boolean onBlockEventReceived(World worldIn, BlockPos pos, IBlockState state, int eventID, int eventParam) {
+		super.onBlockEventReceived(worldIn, pos, state, eventID, eventParam);
+		TileEntity tileentity = worldIn.getTileEntity(pos);
+		return tileentity == null ? false : tileentity.receiveClientEvent(eventID, eventParam);
+	}
 
 	/**
 	 * Don't use the special TE rendering. This requires us to override this
@@ -73,10 +74,10 @@ public class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
 	 * 
 	 * @see net.minecraft.block.Block#getRenderType()
 	 */
-    @Override
-    public int getRenderType() {
-    	return 3;
-    }
+	@Override
+	public int getRenderType() {
+		return 3;
+	}
 
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
@@ -85,7 +86,8 @@ public class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
 
 		// Main logic, must make sure TE isn't null
 		if (te != null) {
-			if (HardcoreTorches.configDebug) System.out.printf("Right click. Fuel: %d\n", te.getFuelAmount());
+			if (HardcoreTorches.configDebug)
+				System.out.printf("Right click. Fuel: %d\n", te.getFuelAmount());
 
 			// Light held torches
 			if (player.getHeldItem() == new ItemStack(ModBlocks.torch_burnt)) {
@@ -95,6 +97,14 @@ public class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
 
 		return super.onBlockActivated(world, pos, state, player, side, hitX, hitY, hitZ);
 	}
+
+	// This makes sure the TE isn't removed before the drops are got
+    @Override
+    public boolean removedByPlayer(World world, BlockPos pos, EntityPlayer player, boolean willHarvest)
+    {
+        if (willHarvest) return true; //If it will harvest, delay deletion of the block until after getDrops
+        return super.removedByPlayer(world, pos, player, willHarvest);
+    }
 
 	@Override
 	public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {

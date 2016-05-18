@@ -5,7 +5,6 @@ import com.github.wolfiewaffle.hardcoretorches.blocks.ModBlocks;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockPos;
 
 public class TileEntityTorch extends TileEntity implements net.minecraft.util.ITickable {
 	public static final String publicName = "tileEntityTorchLit";

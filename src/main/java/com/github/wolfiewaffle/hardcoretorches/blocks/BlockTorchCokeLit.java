@@ -7,6 +7,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 public class BlockTorchCokeLit extends BlockTorchLit implements ITileEntityProvider {
+
 	public final static int MAX_FUEL = 1000;
 
     public BlockTorchCokeLit(String name) {
