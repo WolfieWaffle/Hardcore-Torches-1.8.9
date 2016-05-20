@@ -2,8 +2,12 @@ package com.github.wolfiewaffle.hardcoretorches;
 
 import java.io.File;
 
+import com.github.wolfiewaffle.hardcoretorches.crafting.RecipeRemover;
+import com.github.wolfiewaffle.hardcoretorches.crafting.Recipes;
 import com.github.wolfiewaffle.hardcoretorches.proxy.CommonProxy;
 
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -55,6 +59,8 @@ public class HardcoreTorches {
 	@EventHandler
 	public void Init(FMLInitializationEvent event) {
 		HardcoreTorches.proxy.init(event);
+		Recipes.init();
+		RecipeRemover.removeAnyRecipe(Item.getItemFromBlock(Blocks.torch));
 	}
 
 	@EventHandler
