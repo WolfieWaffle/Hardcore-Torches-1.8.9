@@ -41,7 +41,7 @@ public class HardcoreTorches {
 		config.load();
 
 		configDebug = config.getBoolean("configDebug", Configuration.CATEGORY_GENERAL, false, "Output debug info. Not useful for players.");
-		configTorchFuel = config.getInt("configTorchFuel", Configuration.CATEGORY_GENERAL, 1000, 1, Integer.MAX_VALUE, "The max duration of a basic torch in seconds");
+		configTorchFuel = config.getInt("configTorchFuel", Configuration.CATEGORY_GENERAL, 1000, 1, Integer.MAX_VALUE, "The max duration of a basic torch in seconds. Might not update already placed torches.");
 		//configTorchCokeFuel = config.getInt("configTorchCokeFuel", Configuration.CATEGORY_GENERAL, 2000, 1, Integer.MAX_VALUE, "The max duration of a coke torch in seconds");
 		configTorchDropMode = config.getInt("configTorchDropMode", Configuration.CATEGORY_GENERAL, 0, 0, 2, "0: Torches drop as lit torches when broken\n1: Torches drop as unlit torches when broken\n2: Torches burn out completely when broken");
 		configLightItems = config.getStringList("configLightItems", Configuration.CATEGORY_GENERAL, new String[] {"minecraft:flint", "minecraft:flint_and_steel", "fire_charge"}, "A list of items that can be used to light a torch. If the item is not damageable, it will be consumed.");
