@@ -93,7 +93,7 @@ public class BlockTorchUnlit extends BlockTorchLit implements ITileEntityProvide
 
 		// Item damage goes from 0 to 1000, TE fuel value goes from 1000 to 0
 		// itemDamage + fuel = MAX_FUEL
-		te.setFuel(HardcoreTorches.configTorchFuel - itemMeta);
+		te.setFuel(MAX_FUEL - itemMeta);
 	}
 
 	// Makes sure the TE isn't deleted before the block
@@ -120,7 +120,7 @@ public class BlockTorchUnlit extends BlockTorchLit implements ITileEntityProvide
         	if (HardcoreTorches.configTorchDropMode == 0) {
         		// Item damage goes from 0 to 1000, TE fuel value goes from 1000 to 0
         		// itemDamage + fuel = MAX_FUEL
-        		int itemMeta = HardcoreTorches.configTorchFuel - te.getFuelAmount();
+        		int itemMeta = MAX_FUEL - te.getFuelAmount();
         		drop.add(new ItemStack(ModBlocks.torch_unlit, 1, itemMeta));
         	}
         }

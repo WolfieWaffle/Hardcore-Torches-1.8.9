@@ -49,7 +49,6 @@ public class HardcoreTorches {
 
 		config.save();
 
-		System.out.println("Config Fuel: " + configTorchFuel);
 		HardcoreTorches.proxy.preInit(event);
 	}
 

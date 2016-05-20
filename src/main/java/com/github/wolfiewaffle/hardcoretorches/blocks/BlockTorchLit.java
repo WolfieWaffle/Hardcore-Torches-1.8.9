@@ -20,7 +20,6 @@ import net.minecraft.world.World;
 
 public class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
 
-	// Doesn't work for some reason, keeps returning 0
 	public static int MAX_FUEL = HardcoreTorches.configTorchFuel;
 
 	public BlockTorchLit(String name) {
@@ -108,7 +107,7 @@ public class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
 
 		// Item damage goes from 0 to 1000, TE fuel value goes from 1000 to 0
 		// itemDamage + fuel = MAX_FUEL
-    	te.setFuel(HardcoreTorches.configTorchFuel - itemMeta);
+    	te.setFuel(MAX_FUEL - itemMeta);
 		super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
 	}
 
@@ -136,7 +135,7 @@ public class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
         	if (HardcoreTorches.configTorchDropMode != 2) {
         		// Item damage goes from 0 to 1000, TE fuel value goes from 1000 to 0
         		// itemDamage + fuel = MAX_FUEL
-        		int itemMeta = HardcoreTorches.configTorchFuel - te.getFuelAmount();
+        		int itemMeta = MAX_FUEL - te.getFuelAmount();
 
         		// 0 - Drop as lit torch, 1 - drop as unlit torch
         		if (HardcoreTorches.configTorchDropMode == 0) {
