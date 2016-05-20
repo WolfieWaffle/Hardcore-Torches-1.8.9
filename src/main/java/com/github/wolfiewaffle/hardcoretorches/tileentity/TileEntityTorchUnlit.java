@@ -1,16 +1,14 @@
 package com.github.wolfiewaffle.hardcoretorches.tileentity;
 
 import com.github.wolfiewaffle.hardcoretorches.HardcoreTorches;
-import com.github.wolfiewaffle.hardcoretorches.blocks.ModBlocks;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityTorch extends TileEntity implements net.minecraft.util.ITickable {
-	public static final String publicName = "tileEntityTorchLit";
-	private String name = "tileEntityTorchLit";
+public class TileEntityTorchUnlit extends TileEntity {
+	public static final String publicName = "tileEntityTorchUnlit";
+	private String name = "tileEntityTorchUnlit";
 	private int torchFuel = HardcoreTorches.configTorchFuel;
-	private int tickCounter = 0; // Used to count seconds
 
 	/**
 	 * @return The name of this TileEntity
@@ -46,31 +44,5 @@ public class TileEntityTorch extends TileEntity implements net.minecraft.util.IT
 	public void readFromNBT(NBTTagCompound par1) {
 		super.readFromNBT(par1);
 		this.torchFuel = par1.getInteger("torchFuelNBT");
-	}
-
-	@Override
-	public void update() {
-		// Don't update on the client
-		if (worldObj.isRemote) {
-			return;
-		}
-
-		tickCounter++;
-
-		// If one second has passed
-		if (tickCounter == 20) {
-			torchFuel --;
-
-			// Mark that the value has changed
-			markDirty();
-
-			// If the new fuel value is less than 0, replace the block with a Burnt Torch.
-			if (torchFuel < 0) {
-				System.out.printf("Torch at %d,%d,%d has burnt (fuel %d)\n", pos.getX(), pos.getY(), pos.getZ(), torchFuel);
-				worldObj.setBlockState(pos, ModBlocks.torch_burnt.getDefaultState());
-			}
-
-			tickCounter = 0;
-		}
 	}
 }

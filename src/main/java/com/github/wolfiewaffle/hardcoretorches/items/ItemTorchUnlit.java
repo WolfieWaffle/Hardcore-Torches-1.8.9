@@ -6,12 +6,12 @@ import com.github.wolfiewaffle.hardcoretorches.blocks.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 
-public class ItemTorchLit extends ItemBlock {
-	public ItemTorchLit(Block block) {
+public class ItemTorchUnlit extends ItemBlock {
+	public ItemTorchUnlit(Block block) {
 		super(block);
 		this.hasSubtypes = true;
 		this.setMaxDamage(HardcoreTorches.configTorchFuel);
-		this.setRegistryName(ModBlocks.torch_lit.getRegistryName());
+		this.setRegistryName(ModBlocks.torch_coke_unlit.getRegistryName());
 		this.setMaxStackSize(1);
 	}
 }
