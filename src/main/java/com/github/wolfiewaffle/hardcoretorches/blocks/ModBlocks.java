@@ -12,8 +12,8 @@ public final class ModBlocks {
 	public static Block torch_lit;
 	public static Block torch_coke_lit;
 	public static Block torch_unlit;
-	public static Block torch_coke_unlit;
-	public static Block test_block;
+	//public static Block torch_coke_unlit;
+	//public static Block test_block;
 
     public static void createBlocks() {
     	GameRegistry.registerBlock(torch_burnt = new BlockTorchBurnt("torch_burnt"));
@@ -21,6 +21,6 @@ public final class ModBlocks {
     	GameRegistry.registerBlock(torch_coke_lit = new BlockTorchCokeLit("torch_coke_lit"), ItemTorchCokeLit.class);
     	GameRegistry.registerBlock(torch_unlit = new BlockTorchUnlit("torch_unlit"), ItemTorchUnlit.class);
     	//GameRegistry.registerBlock(torch_coke_unlit = new BlockTorchCokeUnlit("torch_coke_unlit"), ItemTorchCokeUnlit.class);
-    	GameRegistry.registerBlock(test_block = new BlockTest("test_block"));
+    	//GameRegistry.registerBlock(test_block = new BlockTest("test_block"));
     }
 }

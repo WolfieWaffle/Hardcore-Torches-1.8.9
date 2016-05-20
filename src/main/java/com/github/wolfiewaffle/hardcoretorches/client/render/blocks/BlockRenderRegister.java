@@ -18,7 +18,7 @@ public class BlockRenderRegister {
     	reg(ModBlocks.torch_unlit, "torch_unlit");
     	reg(ModBlocks.torch_coke_lit, "torch_coke_lit");
     	//reg(ModBlocks.torch_coke_unlit, "torch_coke_unlit");
-    	reg(ModBlocks.test_block, "test_block");
+    	//reg(ModBlocks.test_block, "test_block");
     }
 
 	public static void reg(Block block, String name) {
