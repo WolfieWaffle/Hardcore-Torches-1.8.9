@@ -66,14 +66,14 @@ public class BlockTorchCokeUnlit extends BlockTorchLit implements ITileEntityPro
 							player.inventory.setInventorySlotContents(player.inventory.currentItem, new ItemStack(itemStack.getItem(), itemStack.stackSize-1, itemStack.getMetadata()));
 						}
 
-						lightTorch(world, pos, ModBlocks.torch_lit, state, state.getValue(FACING));
+						lightTorch(world, pos, ModBlocks.torch_lit, state, state.getValue(FACING), te);
 					}
 				}
 				// Same as above, but for free lighter items
 				for (String item : HardcoreTorches.configFreeLightItems) {
 					// If item is on the list
 					if (itemStack.getItem() == Item.getByNameOrId(item)) {
-						lightTorch(world, pos, ModBlocks.torch_lit, state, state.getValue(FACING));
+						lightTorch(world, pos, ModBlocks.torch_lit, state, state.getValue(FACING), te);
 					}
 				}
 			}

@@ -20,6 +20,7 @@ import net.minecraft.world.World;
 
 public class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
 
+	// Doesn't work for some reason, keeps returning 0
 	public static int MAX_FUEL = HardcoreTorches.configTorchFuel;
 
 	public BlockTorchLit(String name) {
@@ -89,8 +90,8 @@ public class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
 				if (HardcoreTorches.configDebug) System.out.printf("Right click. Fuel: %d\n", te.getFuelAmount());
 	
 				// Light held torches
-				if (player.getHeldItem() == new ItemStack(ModBlocks.torch_burnt)) {
-					System.out.println("Holding burnt torch");
+				if (player.getHeldItem() == new ItemStack(ModBlocks.torch_unlit)) {
+					//System.out.println("Holding burnt torch");
 				}
 			}
 		}
@@ -125,18 +126,26 @@ public class BlockTorchLit extends BlockTorch implements ITileEntityProvider {
         world.setBlockToAir(pos);
     }
 
-    // Gets block drops in some special way so that it return the right thing
+    // Gets block drops in some special way so that it returns the right thing
     @Override
     public java.util.List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
     {
     	ArrayList<ItemStack> drop = new ArrayList<ItemStack>();
         TileEntityTorchLit te = world.getTileEntity(pos) instanceof TileEntityTorchLit ? (TileEntityTorchLit)world.getTileEntity(pos) : null;
         if (te != null) {
-        	if (HardcoreTorches.configTorchDropMode == 0) {
+        	if (HardcoreTorches.configTorchDropMode != 2) {
         		// Item damage goes from 0 to 1000, TE fuel value goes from 1000 to 0
         		// itemDamage + fuel = MAX_FUEL
         		int itemMeta = HardcoreTorches.configTorchFuel - te.getFuelAmount();
-        		drop.add(new ItemStack(ModBlocks.torch_lit, 1, itemMeta));
+
+        		// 0 - Drop as lit torch, 1 - drop as unlit torch
+        		if (HardcoreTorches.configTorchDropMode == 0) {
+        			drop.add(new ItemStack(ModBlocks.torch_lit, 1, itemMeta));
+        		} else {
+        			drop.add(new ItemStack(ModBlocks.torch_unlit, 1, itemMeta));
+        		}
+        	} else {
+        		drop.add(new ItemStack(ModBlocks.torch_burnt, 1, 0));
         	}
         }
         return drop;

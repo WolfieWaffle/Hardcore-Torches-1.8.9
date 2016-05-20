@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 
 public class BlockTorchUnlit extends BlockTorchLit implements ITileEntityProvider, ITorchUnlit {
 
-	public static int MAX_FUEL = HardcoreTorches.configTorchCokeFuel;
+	public static int MAX_FUEL = HardcoreTorches.configTorchFuel;
 
 	public BlockTorchUnlit(String name) {
 		this();
@@ -49,6 +49,7 @@ public class BlockTorchUnlit extends BlockTorchLit implements ITileEntityProvide
 		TileEntityTorchUnlit te = (TileEntityTorchUnlit) world.getTileEntity(pos);
 
 		if (te != null) {
+			if (HardcoreTorches.configDebug && !world.isRemote) System.out.printf("Right click. Fuel: %d\n", te.getFuelAmount());
 			ItemStack itemStack;
 
 			// Get the player's held itemStack
@@ -66,14 +67,14 @@ public class BlockTorchUnlit extends BlockTorchLit implements ITileEntityProvide
 							player.inventory.setInventorySlotContents(player.inventory.currentItem, new ItemStack(itemStack.getItem(), itemStack.stackSize-1, itemStack.getMetadata()));
 						}
 
-						lightTorch(world, pos, ModBlocks.torch_lit, state, state.getValue(FACING));
+						lightTorch(world, pos, ModBlocks.torch_lit, state, state.getValue(FACING), te);
 					}
 				}
 				// Same as above, but for free lighter items
 				for (String item : HardcoreTorches.configFreeLightItems) {
 					// If item is on the list
 					if (itemStack.getItem() == Item.getByNameOrId(item)) {
-						lightTorch(world, pos, ModBlocks.torch_lit, state, state.getValue(FACING));
+						lightTorch(world, pos, ModBlocks.torch_lit, state, state.getValue(FACING), te);
 					}
 				}
 			}

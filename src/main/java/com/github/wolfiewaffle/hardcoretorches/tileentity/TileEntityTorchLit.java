@@ -1,15 +1,16 @@
 package com.github.wolfiewaffle.hardcoretorches.tileentity;
 
 import com.github.wolfiewaffle.hardcoretorches.HardcoreTorches;
+import com.github.wolfiewaffle.hardcoretorches.blocks.ITorchLit;
 import com.github.wolfiewaffle.hardcoretorches.blocks.ModBlocks;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityTorchLit extends TileEntity implements net.minecraft.util.ITickable {
+public class TileEntityTorchLit extends TileEntity implements net.minecraft.util.ITickable, ITorchLit {
 	public static final String publicName = "tileEntityTorchLit";
 	private String name = "tileEntityTorchLit";
-	private int torchFuel = HardcoreTorches.configTorchFuel;
+	private int fuel = HardcoreTorches.configTorchFuel;
 	private int tickCounter = 0; // Used to count seconds
 
 	/**
@@ -23,7 +24,7 @@ public class TileEntityTorchLit extends TileEntity implements net.minecraft.util
 	 * @return The current fuel value of the TileEntity
 	 */
 	public int getFuelAmount() {
-		return this.torchFuel;
+		return this.fuel;
 	}
 
 	/**
@@ -31,7 +32,7 @@ public class TileEntityTorchLit extends TileEntity implements net.minecraft.util
 	 * @param f The new fuel value
 	 */
 	public void setFuel(int f) {
-		this.torchFuel = f;
+		this.fuel = f;
 	}
 
 	// Needed for NBT
@@ -45,7 +46,7 @@ public class TileEntityTorchLit extends TileEntity implements net.minecraft.util
 	@Override
 	public void readFromNBT(NBTTagCompound par1) {
 		super.readFromNBT(par1);
-		this.torchFuel = par1.getInteger("torchFuelNBT");
+		this.fuel = par1.getInteger("torchFuelNBT");
 	}
 
 	@Override
@@ -59,15 +60,15 @@ public class TileEntityTorchLit extends TileEntity implements net.minecraft.util
 
 		// If one second has passed
 		if (tickCounter == 20) {
-			torchFuel --;
+			fuel --;
 
 			//Mark that the value has changed
 			markDirty();
 
 			//If the new fuel value is less than 0, replace the block with a Burnt Torch.
-			if (torchFuel < 0) {
+			if (fuel < 0) {
 				if (HardcoreTorches.configDebug)
-					System.out.printf("Torch at %d, %d, %d has burnt (fuel %d)\n", pos.getX(), pos.getY(), pos.getZ(), torchFuel);
+					System.out.printf("Torch at %d, %d, %d has burnt (fuel %d)\n", pos.getX(), pos.getY(), pos.getZ(), fuel);
 				worldObj.setBlockState(pos, ModBlocks.torch_burnt.getDefaultState());
 			}
 

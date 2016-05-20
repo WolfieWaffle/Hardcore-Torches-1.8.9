@@ -17,6 +17,7 @@ public class BlockRenderRegister {
     	reg(ModBlocks.torch_lit, "torch_lit");
     	reg(ModBlocks.torch_unlit, "torch_unlit");
     	reg(ModBlocks.torch_coke_lit, "torch_coke_lit");
+    	//reg(ModBlocks.torch_coke_unlit, "torch_coke_unlit");
     	reg(ModBlocks.test_block, "test_block");
     }
 

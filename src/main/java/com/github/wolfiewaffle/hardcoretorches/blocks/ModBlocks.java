@@ -1,7 +1,6 @@
 package com.github.wolfiewaffle.hardcoretorches.blocks;
 
 import com.github.wolfiewaffle.hardcoretorches.items.ItemTorchCokeLit;
-import com.github.wolfiewaffle.hardcoretorches.items.ItemTorchCokeUnlit;
 import com.github.wolfiewaffle.hardcoretorches.items.ItemTorchLit;
 import com.github.wolfiewaffle.hardcoretorches.items.ItemTorchUnlit;
 
